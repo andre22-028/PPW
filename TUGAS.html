@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>TUGAS &#8212; PPW</title>
+    <title>Pengantar Web Mining &#8212; PPW</title>
   
   
   
@@ -179,7 +179,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">TUGAS</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pengantar Web Mining</a></li>
 </ul>
 
     </div>
@@ -365,7 +365,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>TUGAS</h1>
+    <h1>Pengantar Web Mining</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -375,7 +375,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengantar-web-mining">Pengantar Web Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">Definisi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-crawling">Web Crawling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-data-preprosesing">Web Data Preprosesing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-terawasi-supervised-learning">Pembelajaran Terawasi (Supervised learning)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining-text-mining">Web Content Mining (Text Mining)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">Web Usage Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-mining">Graph mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-system">Deployment system</a></li>
 </ul>
             </nav>
         </div>
@@ -387,11 +395,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tugas">
-<h1>TUGAS<a class="headerlink" href="#tugas" title="Link to this heading">#</a></h1>
-<section id="pengantar-web-mining">
-<h2>Pengantar Web Mining<a class="headerlink" href="#pengantar-web-mining" title="Link to this heading">#</a></h2>
-<p>Penambangan web adalah proses menemukan dan mengekstrak informasi dari internet menggunakan berbagai teknik penambangan data. Informasi ini dapat digunakan oleh perusahaan untuk pengambilan keputusan yang efektif.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="pengantar-web-mining">
+<h1>Pengantar Web Mining<a class="headerlink" href="#pengantar-web-mining" title="Link to this heading">#</a></h1>
+<section id="definisi">
+<h2>Definisi<a class="headerlink" href="#definisi" title="Link to this heading">#</a></h2>
+<p>Penambangan web adalah penggunaan teknik penambangan data untuk secara otomatis menemukan dan mengekstrak informasi dari dokumen dan layanan web. Bidang penelitian ini sangat luas saat ini, sebagian karena minat berbagai komunitas penelitian, pertumbuhan pesat sumber informasi yang tersedia di web, dan minat baru-baru ini terhadap e-commerce.</p>
+</section>
+<section id="web-crawling">
+<h2>Web Crawling<a class="headerlink" href="#web-crawling" title="Link to this heading">#</a></h2>
+<p>Web Crawling adalah isu yang memiliki banyak aspek, dan serupa dengan banyak isu menarik lain, hal ini tidak bisa dipisah menjadi subtopik yang sepenuhnya terpisah. Dengan mempertimbangkan hal ini, kami telah menyusun survei yang didasarkan pada lima jalur kerja yang cukup berbeda yang dapat ditemukan dalam literatur:</p>
+<p>•	Merancang perayap yang efisien, tangguh, serta mampu diskalakan
+•	Memilih urutan traversa dari grafik web, dengan asumsi bahwa konten berfungsi dengan baik dan saling terhubung melalui hyperlink HTML
+•	Menjadwalkan kunjungan ulang untuk konten yang sudah dirayapi sebelumnya
+•	Menghindari konten yang tidak diinginkan serta bermasalah
+•	Merayapi konten yang disebut sebagai “web dalam”, yang perlu diakses melalui formulir HTML, bukan melalui hyperlink</p>
+</section>
+<section id="web-data-preprosesing">
+<h2>Web Data Preprosesing<a class="headerlink" href="#web-data-preprosesing" title="Link to this heading">#</a></h2>
+<p>Penambangan web melibatkan teknis penggalian data guna memahami pola akses pengunjung ke sebuah situs. Seperti halnya metode KDD (pencarian pengetahuan dan penggalian data) lainnya, WUM mencakup tiga tahap utama: persiapan data, pengambilan wawasan, dan evaluasi hasil. Kami menyoroti tahap persiapan data, yang merupakan proses yang kompleks dan mendetail. Para analis berusaha untuk menetapkan daftar lengkap dari para pengunjung yang mengakses situs dan menyusun kembali aktivitas pengguna—rangkaian tindakan yang diambil oleh setiap pengunjung di situs tersebut.</p>
+</section>
+<section id="pembelajaran-terawasi-supervised-learning">
+<h2>Pembelajaran Terawasi (Supervised learning)<a class="headerlink" href="#pembelajaran-terawasi-supervised-learning" title="Link to this heading">#</a></h2>
+<p>Supervised learning adalah elemen krusial dalam berbagai kegiatan penelitian di bidang pembelajaran mesin, dan banyak metode pembelajaran dengan pengawasan telah digunakan dalam pengolahan konten multimedia. Ciri utama dari pembelajaran ini adalah keberadaan data pelatihan yang telah diberi anotasi. Istilah ini mengingatkan kita pada ide ‘pengawas’ yang memberikan arahan kepada sistem belajar tentang label yang harus dikaitkan dengan contoh pelatihan. Umumnya, label-label ini merupakan kategori dalam masalah klasifikasi.</p>
+</section>
+<section id="unsupervised-learning">
+<h2>Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Link to this heading">#</a></h2>
+<p>Unsupervised Learning menitikberatkan pada bagaimana suatu sistem mampu mengenali dan menafsirkan pola tertentu dengan memanfaatkan struktur statistik dari keseluruhan data yang tersedia. Berbeda dengan pembelajaran yang bersifat menghibur atau berbasis penguatan, di sini tidak ada tujuan akhir yang jelas maupun konteks evaluasi yang berhubungan dengan setiap input yang diberikan; di sisi lain, sistem pembelajaran tanpa bimbingan menekankan pada asumsi awal mengenai elemen-elemen dari struktur input yang harus diperhatikan dalam hasilnya.</p>
+</section>
+<section id="web-content-mining-text-mining">
+<h2>Web Content Mining (Text Mining)<a class="headerlink" href="#web-content-mining-text-mining" title="Link to this heading">#</a></h2>
+<p>Penambangan teks atau penemuan wawasan dari teks (KDT) — untuk pertama kalinya diungkapkan dalam Feldman &amp; Dagan (1995) — berhubungan dengan analisis teks yang didorong oleh mesin. Metode ini mengaplikasikan teknik dari pengambilan informasi, ekstraksi informasi, dan pemrosesan bahasa alami (NLP) serta mengaitkannya dengan algoritma serta metode KDD, penambangan data, pembelajaran mesin, dan analisis statistik. Dengan demikian, proses yang dipilih mirip dengan langkah-langkah dalam KDD, di mana objek analisis bukan data secara umum, melainkan dokumen teks. Dari situ, timbul pertanyaan baru mengenai teknik penambangan data yang diterapkan. Salah satu tantangan yang dihadapi adalah kita kini harus berhadapan dengan masalah — dari sudut pandang pemodelan data — data yang tidak terstruktur.</p>
+</section>
+<section id="web-usage-mining">
+<h2>Web Usage Mining<a class="headerlink" href="#web-usage-mining" title="Link to this heading">#</a></h2>
+<p>Penambangan penggunaan web merupakan penerapan metode penambangan data untuk mengidentifikasi pola-pola perilaku dari data yang berasal dari web, dengan tujuan memahami dan memenuhi kebutuhan aplikasi yang berbasis web secara lebih efektif. Proses penambangan penggunaan web terdiri dari tiga tahap, yaitu prapemrosesan, penemuan pola, dan analisis pola. Artikel ini menjabarkan setiap tahap tersebut secara mendalam. Mengingat peluang aplikatif yang ada, penambangan penggunaan web telah menarik perhatian yang signifikan, baik dari kalangan peneliti maupun para praktisi.</p>
+</section>
+<section id="graph-mining">
+<h2>Graph mining<a class="headerlink" href="#graph-mining" title="Link to this heading">#</a></h2>
+<p>Graph mining adalah area studi yang krusial dan telah mendapatkan banyak perhatian. Proses ini memungkinkan pemrosesan, analisis, serta pengambilan informasi penting dari sejumlah data graf yang sangat besar. Pertumbuhan signifikan ukuran graf mendorong minat dalam penambangan graf besar, ditambah lagi dengan beragam aplikasi yang ada. Beberapa aplikasi ini mencakup bioinformatika, kemoinformatika, dan jaringan sosial. Salah satu tantangan terbesar dalam penambangan graf besar adalah menemukan pola dalam data graf yang besar. Kegiatan ini melibatkan penerapan algoritma penambangan data untuk mendeteksi pola yang menarik, tak terduga, dan berguna dari banyak data graf. Tujuan utamanya adalah untuk memberikan pemahaman yang lebih baik mengenai data graf tersebut.</p>
+</section>
+<section id="deployment-system">
+<h2>Deployment system<a class="headerlink" href="#deployment-system" title="Link to this heading">#</a></h2>
+<p>Deployment system adalah mekanisme atau sistem yang digunakan untuk menyebarkan (deploy) aplikasi atau sistem dari lingkungan pengembangan (development) ke lingkungan produksi (production) sehingga bisa digunakan oleh user.</p>
 </section>
 </section>
 
@@ -450,7 +495,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengantar-web-mining">Pengantar Web Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">Definisi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-crawling">Web Crawling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-data-preprosesing">Web Data Preprosesing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-terawasi-supervised-learning">Pembelajaran Terawasi (Supervised learning)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining-text-mining">Web Content Mining (Text Mining)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">Web Usage Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-mining">Graph mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-system">Deployment system</a></li>
 </ul>
   </nav></div>
 
