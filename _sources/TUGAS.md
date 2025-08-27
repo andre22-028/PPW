@@ -6,10 +6,18 @@ Penambangan web adalah penggunaan teknik penambangan data untuk secara otomatis 
 ## Web Crawling
 Web Crawling adalah isu yang memiliki banyak aspek, dan serupa dengan banyak isu menarik lain, hal ini tidak bisa dipisah menjadi subtopik yang sepenuhnya terpisah. Dengan mempertimbangkan hal ini, kami telah menyusun survei yang didasarkan pada lima jalur kerja yang cukup berbeda yang dapat ditemukan dalam literatur:
 
-•	Merancang perayap yang efisien, tangguh, serta mampu diskalakan 
+•	Merancang perayap yang efisien, tangguh, serta mampu diskalakan
+
+
 •	Memilih urutan traversa dari grafik web, dengan asumsi bahwa konten berfungsi dengan baik dan saling terhubung melalui hyperlink HTML 
+
+
 •	Menjadwalkan kunjungan ulang untuk konten yang sudah dirayapi sebelumnya 
+
+
 •	Menghindari konten yang tidak diinginkan serta bermasalah 
+
+
 •	Merayapi konten yang disebut sebagai "web dalam", yang perlu diakses melalui formulir HTML, bukan melalui hyperlink 
 
 ## Web Data Preprosesing
