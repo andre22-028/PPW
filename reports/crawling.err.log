@@ -31,8 +31,6 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# API Key Springer Nature', 'api_key = "24fbb1b84d527aa86871d96562cf88b5"', '', '# daftar kata kunci', 'keywords = ["web mining", "web usage mining", "web structure mining"]']
-...
-['                "Title": title,', '                "Abstract": abstract', '            })', '    else:', '        print("Error:", response.status_code, response.text)']
+pta_all()
 -------------------
 
