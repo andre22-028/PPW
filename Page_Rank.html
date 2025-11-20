@@ -382,6 +382,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liberary">Liberary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling">Fungsi Crawling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-adjacency">Matriks adjacency</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi">Iterasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-10-node-tertinggi">Visualisasi 10 Node tertinggi</a></li>
 </ul>
             </nav>
@@ -396,191 +403,438 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="page-rank">
 <h1>Page Rank<a class="headerlink" href="#page-rank" title="Link to this heading">#</a></h1>
+<section id="liberary">
+<h2>Liberary<a class="headerlink" href="#liberary" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urljoin</span><span class="p">,</span> <span class="n">urlparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fungsi-crawling">
+<h2>Fungsi Crawling<a class="headerlink" href="#fungsi-crawling" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_progress2</span><span class="p">(</span><span class="n">kategori</span><span class="p">,</span> <span class="n">current_page</span><span class="p">,</span> <span class="n">total_pages</span><span class="p">):</span>
+    <span class="n">percent</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_page</span> <span class="o">/</span> <span class="n">total_pages</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">bar_length</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">filled_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bar_length</span> <span class="o">*</span> <span class="n">current_page</span> <span class="o">//</span> <span class="n">total_pages</span><span class="p">)</span>
+    <span class="n">bar</span> <span class="o">=</span> <span class="s1">&#39;█&#39;</span> <span class="o">*</span> <span class="n">filled_length</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">bar_length</span> <span class="o">-</span> <span class="n">filled_length</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\r</span><span class="si">{</span><span class="n">kategori</span><span class="si">}</span><span class="s1"> - Page </span><span class="si">{</span><span class="n">current_page</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">total_pages</span><span class="si">}</span><span class="s1"> [</span><span class="si">{</span><span class="n">bar</span><span class="si">}</span><span class="s1">] </span><span class="si">{</span><span class="n">percent</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">current_page</span> <span class="o">==</span> <span class="n">total_pages</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># matikan warning SSL insecure</span>
+<span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">(</span><span class="n">urllib3</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">InsecureRequestWarning</span><span class="p">)</span>
 
-<span class="c1"># === 1. Baca data dan bangun matriks adjacency ===</span>
-<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/content/semua_link.csv&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scrape_all_links</span><span class="p">(</span><span class="n">base_url</span><span class="p">,</span> <span class="n">max_pages</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">current_page</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1"># Lewati baris komentar yang diawali &#39;#&#39;</span>
-<span class="c1"># Baca CSV dengan separator koma dan lewati header (pertama baris)</span>
-<span class="n">edges</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">,</span> <span class="s1">&#39;To&#39;</span><span class="p">],</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scrape_page</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+        <span class="k">nonlocal</span> <span class="n">current_page</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 
-<span class="c1"># Tentukan jumlah node</span>
-<span class="n">nodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">])))</span>
+            <span class="c1"># ambil semua link keluar</span>
+            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="n">href</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">href</span> <span class="ow">or</span> <span class="n">href</span> <span class="o">==</span> <span class="s2">&quot;#&quot;</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">full_link</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">href</span><span class="p">)</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s2">&quot;Page&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+                    <span class="s2">&quot;Link Keluar&quot;</span><span class="p">:</span> <span class="n">full_link</span>
+                <span class="p">})</span>
+
+            <span class="c1"># update progress setiap selesai 1 page</span>
+            <span class="n">current_page</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">print_progress2</span><span class="p">(</span><span class="s2">&quot;Scraping&quot;</span><span class="p">,</span> <span class="n">current_page</span><span class="p">,</span> <span class="n">max_pages</span><span class="p">)</span>
+
+            <span class="c1"># cari link internal untuk dilanjutkan</span>
+            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="n">href</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">href</span> <span class="ow">or</span> <span class="n">href</span> <span class="o">==</span> <span class="s2">&quot;#&quot;</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">full_link</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">href</span><span class="p">)</span>
+                <span class="c1"># hanya ambil link internal</span>
+                <span class="k">if</span> <span class="n">full_link</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">base_url</span><span class="p">)</span> <span class="ow">and</span> <span class="n">full_link</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+                    <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">full_link</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">visited</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_pages</span><span class="p">:</span>
+                        <span class="n">scrape_page</span><span class="p">(</span><span class="n">full_link</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠️ Gagal akses </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># mulai dari base_url</span>
+    <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">base_url</span><span class="p">)</span>
+    <span class="n">scrape_page</span><span class="p">(</span><span class="n">base_url</span><span class="p">)</span>
+
+    <span class="c1"># rapikan dataframe dan simpan CSV</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;link.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">✅ Seluruh data berhasil dikumpulkan!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;📊 Total entri: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://informatika.trunojoyo.ac.id/&quot;</span>
+<span class="n">scrape_all_links</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">max_pages</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping - Page 29/30 [███████████████████-] 96.67%
+✅ Seluruh data berhasil dikumpulkan!
+📊 Total entri: 1686
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;link.csv&quot;</span><span class="p">)</span>
+<span class="n">link</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>No</th>
+      <th>Page</th>
+      <th>Link Keluar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>https://informatika.trunojoyo.ac.id/</td>
+      <td>https://informatika.trunojoyo.ac.id/</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>https://informatika.trunojoyo.ac.id/</td>
+      <td>https://informatika.trunojoyo.ac.id/bidang-min...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>https://informatika.trunojoyo.ac.id/</td>
+      <td>https://informatika.trunojoyo.ac.id/bidang-min...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>https://informatika.trunojoyo.ac.id/</td>
+      <td>https://informatika.trunojoyo.ac.id/bidang-min...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>https://informatika.trunojoyo.ac.id/</td>
+      <td>https://informatika.trunojoyo.ac.id/bidang-min...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1681</th>
+      <td>1682</td>
+      <td>https://informatika.trunojoyo.ac.id/unit-kegia...</td>
+      <td>https://tofatek.wordpress.com/</td>
+    </tr>
+    <tr>
+      <th>1682</th>
+      <td>1683</td>
+      <td>https://informatika.trunojoyo.ac.id/unit-kegia...</td>
+      <td>https://informatika.trunojoyo.ac.id/berita-pro...</td>
+    </tr>
+    <tr>
+      <th>1683</th>
+      <td>1684</td>
+      <td>https://informatika.trunojoyo.ac.id/unit-kegia...</td>
+      <td>https://informatika.trunojoyo.ac.id/berita-pro...</td>
+    </tr>
+    <tr>
+      <th>1684</th>
+      <td>1685</td>
+      <td>https://informatika.trunojoyo.ac.id/unit-kegia...</td>
+      <td>https://informatika.trunojoyo.ac.id/berita-pro...</td>
+    </tr>
+    <tr>
+      <th>1685</th>
+      <td>1686</td>
+      <td>https://informatika.trunojoyo.ac.id/unit-kegia...</td>
+      <td>https://informatika.trunojoyo.ac.id/berita-pro...</td>
+    </tr>
+  </tbody>
+</table>
+<p>1686 rows × 3 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="data-preparation">
+<h2>Data preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edges</span> <span class="o">=</span> <span class="n">link</span><span class="p">[[</span><span class="s1">&#39;Page&#39;</span><span class="p">,</span> <span class="s1">&#39;Link Keluar&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Tentukan node unik</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="s1">&#39;Link Keluar&#39;</span><span class="p">])))</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah node: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># Buat mapping node → index</span>
 <span class="n">node_to_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nodes</span><span class="p">)}</span>
-
-<span class="c1"># Bangun matriks adjacency (sparse)</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">edges</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">node_to_index</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]]</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="n">node_to_index</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]]</span>
-    <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># Kolom j, baris i (arah From → To)</span>
-
-<span class="c1"># === 2. Normalisasi kolom (matriks stokastik) ===</span>
-<span class="n">col_sums</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">col_sums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">A</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">n</span>    <span class="c1"># Dangling node → teleportasi penuh</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">A</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">/=</span> <span class="n">col_sums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-
-<span class="c1"># === 3. Inisialisasi PageRank ===</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
-
-<span class="c1"># === 4. Iterasi hingga konvergen ===</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mf">0.85</span>     <span class="c1"># faktor damping</span>
-<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-6</span>
-<span class="n">converged</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">while</span> <span class="ow">not</span> <span class="n">converged</span><span class="p">:</span>
-    <span class="n">r_new</span> <span class="o">=</span> <span class="n">d</span> <span class="o">*</span> <span class="n">A</span> <span class="o">@</span> <span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
-    <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r_new</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">iteration</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iterasi </span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s2">:  = </span><span class="si">{</span><span class="n">diff</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">diff</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
-        <span class="n">converged</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">r_new</span>
-
-<span class="c1"># === 5. Tampilkan hasil ===</span>
-<span class="n">pagerank_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;Node&#39;</span><span class="p">:</span> <span class="n">nodes</span><span class="p">,</span>
-    <span class="s1">&#39;PageRank&#39;</span><span class="p">:</span> <span class="n">r</span>
-<span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;PageRank&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Top 5 node dengan PageRank tertinggi:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pagerank_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah node: 131
-Iterasi 1:  = 0.20641431
-Iterasi 2:  = 0.05763070
-Iterasi 3:  = 0.01609044
-Iterasi 4:  = 0.00449244
-Iterasi 5:  = 0.00125429
-Iterasi 6:  = 0.00035020
-Iterasi 7:  = 0.00009777
-Iterasi 8:  = 0.00002730
-Iterasi 9:  = 0.00000762
-Iterasi 10:  = 0.00000213
-Iterasi 11:  = 0.00000059
-
-Top 5 node dengan PageRank tertinggi:
-                                                  Node  PageRank
-0                      http://himatif.trunojoyo.ac.id/   0.01059
-5           https://informatika.trunojoyo.ac.id/berita   0.01059
-4                 https://informatika.trunojoyo.ac.id/   0.01059
-113  https://informatika.trunojoyo.ac.id/unit-kegia...   0.01059
-99   https://informatika.trunojoyo.ac.id/laboratori...   0.01059
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah node: 157
 </pre></div>
 </div>
 </div>
 </div>
+<section id="matriks-adjacency">
+<h3>Matriks adjacency<a class="headerlink" href="#matriks-adjacency" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">edges</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">node_to_index</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">]]</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">node_to_index</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Link Keluar&#39;</span><span class="p">]]</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># arah Page → Link Keluar</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_sums</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">col_sums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">A</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">n</span>    <span class="c1"># dangling node → teleportasi penuh</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">A</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">/=</span> <span class="n">col_sums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="iterasi">
+<h2>Iterasi<a class="headerlink" href="#iterasi" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mf">0.85</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">r_new</span> <span class="o">=</span> <span class="n">d</span> <span class="o">*</span> <span class="n">A</span> <span class="o">@</span> <span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r_new</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">iteration</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iterasi </span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s2">: diff = </span><span class="si">{</span><span class="n">diff</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">diff</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">r_new</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi 1: diff = 0.17863128
+Iterasi 2: diff = 0.05058169
+Iterasi 3: diff = 0.01432284
+Iterasi 4: diff = 0.00405569
+Iterasi 5: diff = 0.00114842
+Iterasi 6: diff = 0.00032519
+Iterasi 7: diff = 0.00009208
+Iterasi 8: diff = 0.00002607
+Iterasi 9: diff = 0.00000738
+Iterasi 10: diff = 0.00000209
+Iterasi 11: diff = 0.00000059
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === 5. Hasil PageRank ===</span>
+<span class="n">Pagerank_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Page&#39;</span><span class="p">:</span> <span class="n">nodes</span><span class="p">,</span>
+    <span class="s1">&#39;PageRank&#39;</span><span class="p">:</span> <span class="n">r</span>
+<span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;PageRank&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top 5 page dengan PageRank tertinggi:&quot;</span><span class="p">)</span>
+<span class="n">Pagerank_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top 5 page dengan PageRank tertinggi:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Page</th>
+      <th>PageRank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>156</th>
+      <td>https://youtube.com/@teknikinformatikautm</td>
+      <td>0.008885</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>https://www.instagram.com/tifutm.official</td>
+      <td>0.008885</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>https://informatika.trunojoyo.ac.id/laboratori...</td>
+      <td>0.008885</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>https://informatika.trunojoyo.ac.id/pengumuman</td>
+      <td>0.008885</td>
+    </tr>
+    <tr>
+      <th>129</th>
+      <td>https://informatika.trunojoyo.ac.id/labtif/dos...</td>
+      <td>0.008885</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
 <section id="visualisasi-10-node-tertinggi">
 <h2>Visualisasi 10 Node tertinggi<a class="headerlink" href="#visualisasi-10-node-tertinggi" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>  <span class="c1"># Import numpy for array operations</span>
-
-<span class="c1"># === 1. Buat Graph dari data ===</span>
-<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/content/semua_link.csv&quot;</span>
-<span class="n">edges</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">,</span> <span class="s1">&#39;To&#39;</span><span class="p">],</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === 6. Buat Graph untuk Visualisasi ===</span>
+<span class="n">edges_viz</span> <span class="o">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Page&#39;</span><span class="p">:</span> <span class="s1">&#39;From&#39;</span><span class="p">,</span> <span class="s1">&#39;Link Keluar&#39;</span><span class="p">:</span> <span class="s1">&#39;To&#39;</span><span class="p">})</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edges_viz</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
 
-<span class="c1"># === PageRank Calculation ===</span>
-<span class="n">nodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">])))</span>
-<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
-<span class="n">node_to_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nodes</span><span class="p">)}</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">edges</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">node_to_index</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]]</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="n">node_to_index</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]]</span>
-    <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">col_sums</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">col_sums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">A</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">n</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">A</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">/=</span> <span class="n">col_sums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mf">0.85</span>
-<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-6</span>
-<span class="n">converged</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">while</span> <span class="ow">not</span> <span class="n">converged</span><span class="p">:</span>
-    <span class="n">r_new</span> <span class="o">=</span> <span class="n">d</span> <span class="o">*</span> <span class="n">A</span> <span class="o">@</span> <span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
-    <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r_new</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">iteration</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">diff</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
-        <span class="n">converged</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">r_new</span>
-
-<span class="n">pagerank_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;Node&#39;</span><span class="p">:</span> <span class="n">nodes</span><span class="p">,</span>
-    <span class="s1">&#39;PageRank&#39;</span><span class="p">:</span> <span class="n">r</span>
-<span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;PageRank&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># === 2. Ambil 10 node dengan PageRank tertinggi ===</span>
-<span class="n">top_nodes</span> <span class="o">=</span> <span class="n">pagerank_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)[</span><span class="s1">&#39;Node&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="c1"># Ambil 10 node dengan PageRank tertinggi</span>
+<span class="n">top_nodes</span> <span class="o">=</span> <span class="n">Pagerank_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)[</span><span class="s1">&#39;Page&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">H</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">top_nodes</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="n">pr_sub</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">pagerank_df</span><span class="p">[</span><span class="s1">&#39;Node&#39;</span><span class="p">],</span> <span class="n">pagerank_df</span><span class="p">[</span><span class="s1">&#39;PageRank&#39;</span><span class="p">]))</span>
+<span class="c1"># Warna berdasarkan nilai PageRank</span>
+<span class="n">pr_sub</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">Pagerank_df</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">],</span> <span class="n">Pagerank_df</span><span class="p">[</span><span class="s1">&#39;PageRank&#39;</span><span class="p">]))</span>
 <span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">pr_sub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">H</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
 
-<span class="c1"># === 3. Visualisasi graf dengan label ===</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1"># === 7. Visualisasi Graf ===</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">kamada_kawai_layout</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
 
-<span class="c1"># Node dan edge</span>
+<span class="c1"># Gambar node dan edge</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span>
     <span class="n">H</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span>
     <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span>
     <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">plasma</span><span class="p">,</span>
-    <span class="n">node_size</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+    <span class="n">node_size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
     <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
 <span class="p">)</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
-<span class="c1"># === Tambahkan label node ===</span>
+<span class="c1"># Tambahkan label node</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span>
     <span class="n">H</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span>
-    <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
     <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
     <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+    <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+    <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
     <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
 <span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Visualisasi Subgraf Berdasarkan PageRank (Top 10 Node)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="c1"># Hitung batas posisi node untuk perluasan area gambar</span>
+<span class="n">x_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pos</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+<span class="n">y_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pos</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+<span class="n">x_margin</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">x_values</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.25</span>
+<span class="n">y_margin</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">y_values</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">y_values</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.25</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span> <span class="o">-</span> <span class="n">x_margin</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span> <span class="o">+</span> <span class="n">x_margin</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y_values</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_margin</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_values</span><span class="p">)</span> <span class="o">+</span> <span class="n">y_margin</span><span class="p">)</span>
+
+<span class="c1"># Tambahkan judul dan colorbar</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Visualisasi Subgraf Berdasarkan PageRank (Top 10 Node)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 
 <span class="n">sm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">plasma</span><span class="p">)</span>
 <span class="n">sm</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">node_colors</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nilai PageRank&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nilai PageRank&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8ae15e07c442cc5758b4a0ffa5f35496110fdd98185936ae7ccab0a5ff3170f8.png" src="_images/8ae15e07c442cc5758b4a0ffa5f35496110fdd98185936ae7ccab0a5ff3170f8.png" />
+<img alt="_images/42384edcd066e874bfe349d1de3e4162ee6d5ac2717fa956abfc5d9e97fe22c2.png" src="_images/42384edcd066e874bfe349d1de3e4162ee6d5ac2717fa956abfc5d9e97fe22c2.png" />
 </div>
 </div>
 </section>
@@ -641,6 +895,13 @@ Top 5 node dengan PageRank tertinggi:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liberary">Liberary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling">Fungsi Crawling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-adjacency">Matriks adjacency</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi">Iterasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-10-node-tertinggi">Visualisasi 10 Node tertinggi</a></li>
 </ul>
   </nav></div>
