@@ -361,7 +361,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -377,6 +379,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-dataset">Membaca Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konversi-url-menjadi-label-huruf">Konversi URL Menjadi Label Huruf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-web-usage-session">Pembentukan Web Usage Session</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-tabel-web-usage-host-session-timestamp-page">Membentuk Tabel Web Usage (Host – Session – Timestamp – Page)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-total-sesi-per-host">Ringkasan Total Sesi Per Host</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membangun-tabel-binary-per-halaman">MEMBANGUN TABEL BINARY PER HALAMAN</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -388,7 +403,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="nasa">
 <h1>NASA<a class="headerlink" href="#nasa" title="Link to this heading">#</a></h1>
-<p>##1.Membaca Dataset</p>
+<section id="membaca-dataset">
+<h2>Membaca Dataset<a class="headerlink" href="#membaca-dataset" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -709,7 +725,9 @@ document.write(`
   </div>
 </div></div>
 </div>
-<p>##2.Konversi URL Menjadi Label Huruf</p>
+</section>
+<section id="konversi-url-menjadi-label-huruf">
+<h2>Konversi URL Menjadi Label Huruf<a class="headerlink" href="#konversi-url-menjadi-label-huruf" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">num_to_letters</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -733,7 +751,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>##3.Pembentukan Web Usage Session</p>
+</section>
+<section id="pembentukan-web-usage-session">
+<h2>Pembentukan Web Usage Session<a class="headerlink" href="#pembentukan-web-usage-session" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">num_to_letters</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -835,7 +855,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>##4.Membentuk Tabel Web Usage (Host – Session – Timestamp – Page)</p>
+</section>
+<section id="membentuk-tabel-web-usage-host-session-timestamp-page">
+<h2>Membentuk Tabel Web Usage (Host – Session – Timestamp – Page)<a class="headerlink" href="#membentuk-tabel-web-usage-host-session-timestamp-page" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_mapping_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
@@ -1198,7 +1220,9 @@ document.write(`
   </div>
 </div></div>
 </div>
-<p>##5.Ringkasan Total Sesi Per Host</p>
+</section>
+<section id="ringkasan-total-sesi-per-host">
+<h2>Ringkasan Total Sesi Per Host<a class="headerlink" href="#ringkasan-total-sesi-per-host" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">table_rows</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1957,7 +1981,9 @@ document.write(`
   </div>
 </div></div>
 </div>
-<p>##6.MEMBANGUN TABEL BINARY PER HALAMAN</p>
+</section>
+<section id="membangun-tabel-binary-per-halaman">
+<h2>MEMBANGUN TABEL BINARY PER HALAMAN<a class="headerlink" href="#membangun-tabel-binary-per-halaman" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_binary_table</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">url_map</span><span class="p">):</span>
@@ -2795,6 +2821,7 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2841,6 +2868,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-dataset">Membaca Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konversi-url-menjadi-label-huruf">Konversi URL Menjadi Label Huruf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-web-usage-session">Pembentukan Web Usage Session</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-tabel-web-usage-host-session-timestamp-page">Membentuk Tabel Web Usage (Host – Session – Timestamp – Page)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-total-sesi-per-host">Ringkasan Total Sesi Per Host</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membangun-tabel-binary-per-halaman">MEMBANGUN TABEL BINARY PER HALAMAN</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
