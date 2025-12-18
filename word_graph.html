@@ -1,0 +1,1029 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; PPW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'word_graph';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="NASA" href="usage.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Andre.jpg" class="logo__image only-light" alt="PPW - Home"/>
+    <script>document.write(`<img src="_static/Andre.jpg" class="logo__image only-dark" alt="PPW - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Profile
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="TUGAS.html">Pengantar Web Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawling.html">Crawling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Procesing.html">Pre-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TF-IDF.html">TF-IDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Berita.html">Preprocessing Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS.html">UTS</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Page_Rank.html">Page Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nasa.html">WEB USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">NASA</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fword_graph.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/word_graph.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pymupdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pymupdf
+  Downloading pymupdf-1.26.6-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (3.4 kB)
+Downloading pymupdf-1.26.6-cp310-abi3-manylinux_2_28_x86_64.whl (24.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">24.1/24.1 MB</span> <span class=" -Color -Color-Red">46.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hInstalling collected packages: pymupdf
+Successfully installed pymupdf-1.26.6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">PPW</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Errno 2] No such file or directory: &#39;/content/drive/MyDrive/PPW&#39;
+/content
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pymupdf</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;main.pdf&quot;</span><span class="p">)</span> <span class="c1"># open a document</span>
+<span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="c1"># create a text output</span>
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span> <span class="c1"># iterate the document pages</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="c1"># get plain text (is in UTF-8)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># write text of page</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">((</span><span class="mi">12</span><span class="p">,)))</span> <span class="c1"># write page delimiter (form feed 0x0C)</span>
+<span class="n">out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">nltk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>  <span class="c1"># hanya perlu sekali</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>  <span class="c1"># opsional, untuk versi terbaru NLTK (≥3.8.2)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+[nltk_data] Downloading package punkt_tab to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt_tab.zip.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">teks</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">teks</span><span class="p">[:</span><span class="mi">200</span><span class="p">])</span>  <span class="c1"># tampilkan 200 karakter pertama</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3043 
+Jurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) 
+ Vol. 5 No. 3 (2024) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+https://journal.stmiki.ac.id 
+E-
+  P-
+ 
+ 
+ 
+Analisis Sentimen Publik Terhadap Pen
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install: pip install nltk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+
+
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;3043 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \nAnalisis Sentimen Publik Terhadap Penurunan Jumlah \nPernikahan di Indonesia menggunakan Algoritma K-Nearest \nNeighbors (KNN) \n \nAfyra Ar’bah Lailany 1, Sri Lestari 2* \n \n1,2* Program Studi Sistem Informasi, Sekolah Tinggi Ilmu Komputer Cipta Karya Informatika, Kota Jakarta \nTimur, Daerah Khusus Ibukota Jakarta, Indonesia.&#39;, &#39;Email: afyraarbah@gmail.com 1, sri.lestari1203@gmail.com 2* \n \nHistori Artikel:  \nDikirim 25 Juli 2024; Diterima dalam bentuk revisi 10 Agustus 2024; Diterima 20 Agustus 2024; Diterbitkan 20 \nSeptember 2024.&#39;, &#39;Semua hak dilindungi oleh Lembaga Penelitian dan Pengabdian Masyarakat (LPPM) STMIK \nIndonesia Banda Aceh.&#39;, &#39;Abstrak \nPernikahan di Indonesia adalah aspek penting dalam budaya dan masyarakatnya.&#39;, &#39;Namun, dalam beberapa tahun \nterakhir, telah terjadi penurunan signifikan dalam jumlah pernikahan di negara ini.&#39;, &#39;Untuk memahami pandangan \nmasyarakat terhadap fenomena ini, penelitian ini bertujuan untuk melakukan Analisis Sentimen terhadap \nPenurunan Jumlah Pernikahan di Indonesia.&#39;, &#39;Penurunan jumlah pernikahan dapat menimbulkan berbagai \nmasalah dan ekonomi.&#39;, &#39;Adanya faktor-faktor tertentu yang berkontribusi pada perubahan ini, seperti pergeseran \nnilai-nilai atau faktor ekonomi.&#39;, &#39;Mengetahui pandangan terhadap hal ini penting untuk merumuskan kebijakan \nyang sesuai dan mencari solusi yang efektif.&#39;, &#39;Metode yang digunakan dalam penelitian ini adalah analisis \nmenggunakan algoritma K-Nearest Neighbors (KNN).&#39;, &#39;Data akan dikumpulkan melalui komentar dihalaman \nmedia sosial Tiktok.&#39;, &#39;Data opini yang diperoleh akan diolah menggunakan algoritma KNN untuk \nmengklasifikasikan sentimen positif, negatif, atau netral terkait penurunan jumlah pernikahan.&#39;, &#39;Data yang \ndigunakan berjumlah 2.000 data, dan diolah menggunakan metode CRISP-DM.&#39;, &#39;Kata Kunci: Data Mining; Pernikahan; K-Nearest Neighbors; Tiktok.&#39;, &#39;Abstract \nMarriage in Indonesia is an important aspect of its culture and society.&#39;, &#39;However, in recent years, there has been \na significant decline in the number of marriages in the country.&#39;, &quot;To understand people&#39;s views on this \nphenomenon, this research aims to conduct a sentiment analysis regarding the decline in the number of \nmarriages in Indonesia.&quot;, &#39;A decrease in the number of marriages can cause various economic problems.&#39;, &#39;There \nare certain factors that contribute to this change, such as shifts in values or economic factors.&#39;, &#39;Knowing views \non this matter is important for formulating appropriate policies and finding effective solutions.&#39;, &#39;The method \nused in this research is analysis using the K-Nearest Neighbors (KNN) algorithm.&#39;, &#39;Data will be collected through \ncomments on Tiktok social media pages.&#39;, &#39;The opinion data obtained will be processed using the KNN algorithm \nto classify positive, negative or neutral sentiment regarding the decline in the number of marriages.&#39;, &#39;The data \nused amounted to 2,000 data, and were processed using the CRISP-DM method.&#39;, &#39;Keyword: Data Mining; Marriage; K-Nearest Neighbors; Tiktok.&#39;, &#39;3044 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \n1.&#39;, &#39;Pendahuluan \n \nPernikahan sebagai institusi sosial yang mendasar tidak hanya mencerminkan hubungan antara \ndua individu, tetapi juga memiliki dampak signifikan pada struktur sosial, keberlanjutan keluarga, dan \nkesejahteraan masyarakat secara keseluruhan.&#39;, &#39;Dalam perspektif administrasi kependudukan, \npernikahan merupakan peristiwa kehidupan yang harus dilaporkan dan dicatat oleh instansi terkait \nyang mengurus pencatatan sipil dan kependudukan (Setia Ningtias, 2022).&#39;, &#39;Pencatatan pernikahan \ntidak hanya penting bagi individu yang menikah tetapi juga menjadi dasar bagi penyusunan kebijakan \nsosial yang berkelanjutan di Indonesia.&#39;, &#39;Dalam beberapa tahun terakhir, terjadi peningkatan jumlah \nperceraian yang secara langsung berdampak pada penurunan jumlah pernikahan.&#39;, &#39;Berdasarkan data \nresmi dari Kementerian Agama, pada tahun 2023 tercatat 463.654 kasus perceraian (Rahmananda et \nal., 2022).&#39;, &#39;Perceraian ini tidak hanya memisahkan dua individu, tetapi juga membawa berbagai \nkonsekuensi sosial, khususnya bagi anak-anak yang terdampak.&#39;, &#39;Anak-anak dari keluarga yang bercerai \nsering kali merasa khawatir tentang masa depan hubungan mereka sendiri, karena takut bahwa rumah \ntangga yang akan mereka bangun di masa depan mungkin akan mengalami hal yang sama (Astana et \nal., 2023).&#39;, &#39;Selain itu, bagi perempuan yang bercerai akibat kekerasan dalam rumah tangga atau \nperselingkuhan, seringkali ada rasa trauma dan ketakutan untuk memulai hubungan baru (Anwar et \nal., 2020).&#39;, &#39;Perubahan prioritas hidup masyarakat juga menjadi faktor utama dalam penurunan jumlah \npernikahan.&#39;, &#39;Banyak individu merasa bahwa pernikahan membawa tanggung jawab yang besar, baik \nsecara finansial maupun emosional.&#39;, &#39;Sebagian masyarakat bahkan beranggapan bahwa prioritas utama \ndalam hidup mereka bukanlah pernikahan, melainkan pengembangan karier.&#39;, &#39;Peran perempuan dalam \nmasyarakat modern juga telah mengalami perubahan besar.&#39;, &#39;Banyak perempuan yang memilih untuk \nfokus pada pencapaian karier dan stabilitas ekonomi sebelum memutuskan untuk menikah (Fitra et \nal., 2023).&#39;, &#39;Dalam konteks masyarakat yang semakin kompetitif, perempuan kerap mengutamakan \npekerjaan bergengsi, sehingga keputusan untuk menikah tertunda.&#39;, &#39;Hal ini menyebabkan fokus \nmasyarakat bergeser ke peningkatan kualitas hidup pribadi daripada memulai kehidupan berumah \ntangga.&#39;, &#39;Penelitian ini relevan untuk memahami persepsi masyarakat terkait penurunan jumlah pernikahan \ndi Indonesia.&#39;, &#39;Penelitian menggunakan algoritma K-Nearest Neighbors (KNN), salah satu algoritma \ndalam machine learning yang umum digunakan dalam klasifikasi data dan regresi.&#39;, &#39;Algoritma KNN \nefektif dalam menangani data non-linier dan kompleks, serta mudah diimplementasikan (Primartha, \n2021).&#39;, &#39;Keunggulan algoritma ini memungkinkan pengelompokan persepsi masyarakat terkait \nfenomena penurunan pernikahan.&#39;, &#39;Analisis sentimen memainkan peran penting dalam \nmengidentifikasi bagaimana masyarakat merespons tren ini, baik melalui media sosial maupun survei.&#39;, &#39;Sentimen masyarakat yang diungkapkan melalui berbagai platform memberikan gambaran faktor-\nfaktor yang mempengaruhi keputusan seseorang untuk menikah atau tidak.&#39;, &#39;Pemahaman ini dapat \nmenjadi masukan berharga bagi pemerintah dan pemangku kebijakan dalam merancang program yang \nmendukung stabilitas pernikahan dan keluarga.&#39;, &#39;Penelitian ini diharapkan dapat memberikan kontribusi pada pengembangan kebijakan yang \nbertujuan meningkatkan kualitas pernikahan dan stabilitas keluarga di Indonesia.&#39;, &#39;Hal ini sejalan \ndengan visi pembangunan nasional untuk menciptakan masyarakat yang sejahtera, harmonis, dan \nmampu bersaing dalam era globalisasi yang semakin dinamis.&#39;, &#39;Algoritma KNN digunakan untuk \nmengelompokkan pola umum dalam persepsi publik terkait penurunan jumlah pernikahan, dan \nmelalui analisis ini, penelitian diharapkan dapat memberikan dasar bagi kebijakan yang tepat untuk \nmengatasi fenomena tersebut.&#39;, &#39;3045 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \n2.&#39;, &#39;Metode Penelitian \n \nMetode penelitian menjelaskan tahapan penelitian atau pengembangan yang dilakukan untuk \nmencapai tujuan/sasaran penelitian.&#39;, &#39;Tiap tahap dijelaskan secara ringkas, misalnya tiap tahap dalam \nsatu paragraf.&#39;, &#39;Bahan/materi/platform yang digunakan dalam penelitian diuraikan di bab ini, yaitu \nmeliputi subjek/bahan yang diteliti, alat / perangkat lunak bantu yang digunakan, rancangan \npercobaan atau desain yang digunakan, teknik pengambilan sampel, rencana pengujian (variabel yang \nakan diukur dan teknik mengambil data), analisis dan model statistik yang digunakan.&#39;, &#39;Gambar 1.&#39;, &#39;Metodologi CRISP-DM \n \nMetode penelitian ini menggunakan pendekatan Cross-Industry Standard Process for Data Mining \n(CRISP-DM) yang terdiri dari enam tahapan utama, yaitu pemahaman bisnis, pemahaman data, \npersiapan data, pemodelan, evaluasi, dan deployment.&#39;, &#39;Pendekatan ini diterapkan untuk menganalisis \nsentimen publik terhadap penurunan pernikahan di Indonesia, dengan data yang dikumpulkan dari \nplatform media sosial TikTok.&#39;, &#39;Proses ini dirancang untuk memberikan hasil yang optimal dalam \nmemahami persepsi publik serta membantu dalam perumusan kebijakan yang relevan.&#39;, &#39;2.1 Pemahaman Bisnis (Business Understanding)  \nTahap pertama adalah pemahaman bisnis, di mana penelitian ini dimulai dengan menganalisis \nfenomena penurunan pernikahan di Indonesia.&#39;, &#39;Analisis ini bertujuan untuk mengetahui sentimen \npublik terkait tren tersebut, yang dapat digunakan sebagai bahan masukan dalam merumuskan \nkebijakan yang efektif.&#39;, &#39;Pada tahap ini, tujuan utama adalah untuk mengidentifikasi dan \nmengklasifikasikan opini publik berdasarkan sentimen positif, negatif, atau netral terhadap penurunan \nangka pernikahan.&#39;, &#39;Data diperoleh dari TikTok, salah satu platform media sosial dengan pengguna \nyang luas, dan data diambil melalui aplikasi Microsoft Excel.&#39;, &#39;Data yang telah terkumpul kemudian \nmelalui proses filterisasi awal untuk menghilangkan data yang tidak relevan, sehingga menghasilkan \nkumpulan komentar yang siap dianalisis lebih lanjut dengan menggunakan algoritma K-Nearest \nNeighbors (KNN).&#39;, &#39;Analisis ini penting karena hasilnya akan mencerminkan persepsi masyarakat, yang \ndapat menjadi acuan bagi pengambil kebijakan.&#39;, &#39;2.2 Pemahaman Data (Data Understanding) \nTahap selanjutnya adalah pemahaman data, yang bertujuan untuk memastikan bahwa data yang \ntelah dikumpulkan sesuai dengan kebutuhan penelitian dan mendukung pencapaian tujuan yang telah \nditetapkan.&#39;, &#39;Data yang diperoleh dari komentar pengguna TikTok diambil dan dianalisis menggunakan \n\x0c3046 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \nExcel sebagai alat bantu.&#39;, &#39;Pada tahap ini, peneliti mempelajari karakteristik data untuk menentukan \nstrategi analisis yang paling tepat.&#39;, &#39;Pemahaman terhadap struktur dan distribusi data sangat penting \nagar proses pemodelan berjalan lancar dan hasil yang dihasilkan sesuai dengan tujuan penelitian.&#39;, &#39;2.3 Persiapan Data (Data Preparation) \nTahapan ini melibatkan berbagai langkah untuk mempersiapkan dataset agar dapat digunakan \ndalam proses pemodelan.&#39;, &#39;Persiapan data adalah salah satu tahapan yang paling padat, karena \nmencakup serangkaian proses pengelolaan data mentah untuk menjadi dataset yang siap dianalisis.&#39;, &#39;Langkah-langkah \npersiapan \ndata \nmeliputi \npengumpulan, \npembersihan, \ntokenisasi, \nstemming/lemmatisasi, penghilangan noise, normalisasi, dan pelabelan sentimen.&#39;, &#39;1) Pengumpulan Data: Langkah pertama dalam persiapan data adalah pengumpulan data, yang \ndilakukan dengan mengambil komentar dari TikTok dengan menggunakan kata kunci \n“Penurunan Jumlah Pernikahan di Indonesia.” Data ini berjumlah ribuan komentar yang \nkemudian diolah lebih lanjut.&#39;, &#39;2) Pembersihan Data: Pada tahap ini, data dibersihkan dari karakter-karakter khusus, tautan, tanda \nbaca, serta elemen-elemen lain yang tidak relevan untuk analisis sentimen.&#39;, &#39;Proses ini juga \nmencakup penghapusan stopwords atau kata-kata umum seperti “dan”, “atau”, dan “juga”, yang \ntidak memberikan banyak informasi tentang sentimen.&#39;, &#39;3) Tokenisasi: Setelah pembersihan, teks komentar dipecah menjadi unit-unit yang lebih kecil, \ndisebut token.&#39;, &#39;Proses tokenisasi ini biasanya dilakukan dengan memisahkan kata-kata \nberdasarkan spasi, namun dalam beberapa kasus yang lebih kompleks, tokenisasi bisa lebih rumit \ntergantung pada struktur bahasa yang digunakan.&#39;, &#39;4) Stemming/Lemmatisasi: Selanjutnya, kata-kata direduksi menjadi bentuk dasarnya melalui proses \nstemming atau lemmatisasi.&#39;, &#39;Stemming melibatkan pemangkasan akhiran kata, sementara lemmatisasi \nmengembalikan kata ke bentuk dasar yang lebih sesuai dengan maknanya dalam konteks kalimat.&#39;, &#39;5) Penghilangan Noise: Langkah berikutnya adalah penghilangan noise, yaitu menghapus kata-kata \nyang tidak relevan seperti angka, simbol, atau kata yang terlalu sering muncul dan tidak \nmemberikan informasi berguna.&#39;, &#39;6) Normalisasi: Data kemudian dinormalisasi dengan menghapus tanda baca atau karakter khusus \ntertentu, serta mengganti frasa umum dengan representasi standar.&#39;, &#39;Misalnya, frasa seperti &quot;tidak \njujur&quot; digantikan dengan kata &quot;bohong&quot; untuk menyederhanakan analisis.&#39;, &#39;7) Pelabelan Sentimen: Setelah proses pembersihan dan normalisasi selesai, data diberi label sesuai \ndengan sentimennya, apakah positif, negatif, atau netral.&#39;, &#39;Pelabelan ini dapat dilakukan secara \nmanual oleh peneliti atau menggunakan pendekatan otomatis, seperti kamus sentimen atau model \nklasifikasi.&#39;, &#39;Hasil dari tahap ini adalah dataset yang siap untuk dianalisis menggunakan algoritma \nKNN.&#39;, &#39;2.4 Pemodelan (Modeling) \nPada tahap pemodelan, algoritma K-Nearest Neighbors (KNN) diterapkan untuk melakukan \nklasifikasi sentimen terhadap komentar TikTok.&#39;, &#39;Algoritma ini bekerja dengan mengelompokkan data \nberdasarkan kemiripan atribut-atribut yang ada.&#39;, &#39;Dalam konteks penelitian ini, KNN digunakan untuk \nmengklasifikasikan data menjadi tiga kelompok utama, yaitu sentimen positif, negatif, dan netral.&#39;, &#39;Algoritma ini dipilih karena keefektifannya dalam menangani data yang bersifat non-linier dan \nkemampuannya dalam mengelompokkan data secara sederhana namun akurat.&#39;, &#39;Proses pemodelan \ndilakukan menggunakan alat pemodelan Rapidminer yang mendukung implementasi algoritma KNN \ndengan baik.&#39;, &#39;2.5 Evaluasi (Evaluation) \nTahap evaluasi dilakukan untuk menilai seberapa baik model yang telah dibuat dalam \nmengklasifikasikan data dengan benar.&#39;, &#39;Proses evaluasi ini menggunakan metrik-metrik seperti akurasi, \npresisi, dan recall untuk mengukur performa model.&#39;, &#39;Evaluasi ini sangat penting karena akan \n\x0c3047 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \nmenentukan apakah model sudah sesuai dengan tujuan penelitian atau perlu diperbaiki.&#39;, &#39;Jika hasil \nevaluasi menunjukkan bahwa model tidak memadai atau tidak sesuai dengan rencana awal, langkah-\nlangkah pemodelan akan diulang dari awal.&#39;, &#39;Namun, jika hasilnya memuaskan, maka penelitian dapat \ndilanjutkan ke tahap berikutnya.&#39;, &#39;2.6 Penerapan (Deployment) \nTahap terakhir dari metodologi CRISP-DM adalah deployment, di mana hasil penelitian \ndisebarkan dan digunakan untuk keperluan praktis.&#39;, &#39;Hasil penelitian ini akan disusun dalam bentuk \nlaporan dan presentasi yang memberikan gambaran menyeluruh tentang sentimen publik terkait \npenurunan pernikahan di Indonesia.&#39;, &#39;Pengetahuan yang diperoleh dari proses ini diharapkan dapat \ndigunakan oleh para pengambil kebijakan untuk merancang strategi yang lebih efektif dalam \nmengatasi fenomena penurunan angka pernikahan di Indonesia.&#39;, &#39;3.&#39;, &#39;Hasil dan Pembahasan \n \n3.1 Hasil \nHasil Pengujian ini dapat dilakukan dengan menggunakan metode Cross-Industry Standars \nProcess for Data Mining (CRISP-DM) yang memiliki 6 tahap, yaitu: \n1) Pemahaman Bisnis (Bussiness Understanding) \nPernikahan adalah proses antara dua orang melanjutkan ke jenjang dan status yang lebih serius.&#39;, &#39;Namun seiring berjalannya waktu jumlah pernikahan di Indonesia mengalami penurunan selama \n10 tahun terakhir.&#39;, &#39;Tujuan dasarnya adalah untuk menentukan mencari nilai akurasi, presisi, dan \nrecall, serta menganalisa sentimen masyarakat tentang penurunan pernikahan di Indonesia.&#39;, &#39;2) Pemahaman Data (Data Understanding) \nMemahami informasi data yang akan digunakan dalam penelitian, Adapun beberapa tahap untuk \nmelakukan penelitian ini yaitu pengumpulan data awal yaitu melakukan pengumpulan data yang \ndibutuhkan untuk mendukung dalam melakukan pemahaman data.&#39;, &#39;Adapun sumber data utama \nyang digunakan dalam penelitian ini adalah data komentar tiktok dengan kata kunci ‘Penurunan \nJumlah Pernikahan di Indonesia’ pada 5 Maret 2024 sampai 30 April 2024.&#39;, &#39;3) Data Preparation \nPada tahap ini, peneliti akan melakukan proses cleansing dengan menggunakan rapidminer \nsebelum melakukan pemberian label pada sentimen, agar dataset pada csv terbaru terhindar dari \nduplikasi data dan tanda yang tidak diperlukan.&#39;, &#39;Pada proses ini akan dilakukan pembersihan dari \nberbagai noise seperti menghilangkan link URL, username, tag, digit angka, dan karakter.&#39;, &#39;Setelah \nselesai menjalankan proses cleansing dengan menggunakan rapidminer.&#39;, &#39;Awalnya terdapat 3000 \ndata komentar pada file csv, kemudian setelah melewati proses cleansing, maka data komentar \nberkurang menjadi 2000 data.&#39;, &#39;a) Labeling Data  \nKemudian tahap selanjutnya adalah melakukan klasifikasi atau penentuan sentimen \nberdasarkan masing-masing komentar.&#39;, &#39;Selama proses penentuan sentimen berlangsung, \npeneliti melakukan pemberian sentimen secara manual.&#39;, &#39;Berikut ini data yang sudah diberi \nlabel.&#39;, &#39;3048 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \n \nGambar 2.&#39;, &#39;Labeling Data \nb) Pembersihan Data \nMembersihkan data dari karakter khusus, tautan, tanda baca, dan elemen yang tidak \ndiperlukan lainnya seperti menghapus stopword (kata-kata umum seperti “dan”, “atau”, serta \n“juga”) yang tidak memberikan banyak informasi tentang sentimen.&#39;, &#39;Gambar 3.&#39;, &#39;Cleansing Data \n \n4) Modelling \nPada tahapan ini peneliti akan melakukan preprocessing pada dataset.&#39;, &#39;Hal ini ditunjukkan untuk \nmenyiapkan data yang bersih dan data yang bebas dari noise.&#39;, &#39;Pada proses ini juga untuk \nmenghitung pembobotan kata untuk keperluan pada proses modelling nanti.&#39;, &#39;Berikut proses test \npreparation, maka jumlah data komentar tiktok didapatkan menjadi 2000 data yang merupakan \ndata bersih untuk dipakai pada tahap selanjutnya.&#39;, &#39;Berikut proses Modelling yang dilakukan di \nsoftware Rapidminer yang ditunjukan pada Gambar 4.8 \n5) Evaluation \nPada penelitian ini akan dilakukan pengujian menggunakan confusion matrix untuk melihat hasil \npengujian data yang diperoleh dari tahapan modelling dengan menggunakan algoritma KNN.&#39;, &#39;Total dataset yang dikumpulkan adalah 2000 data.&#39;, &#39;Berikut ini adalah confusion matrix hasil dari \n\x0c3049 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \ntahapan modelling yang dapat dilihat dari hasil perhitungan Rapidminer dapat dilihat pada gambar \n4 untuk menunjukkan dan membuktikan hasil prediksi dari model KNN.&#39;, &#39;Gambar 4.&#39;, &#39;Hasil Prediksi Rapid Miner \n \nTabel 1.&#39;, &#39;Tabel Prediksi \n \nTrue Positif \nTrue Negatif \nClass Precision \nPred.&#39;, &#39;Positif \n864 \n140 \n86,06% \nPred.&#39;, &#39;Negatif \n3 \n2 \n40,00% \nClass Recall \n99,65% \n1,41% \n \n \n \nGambar 5.&#39;, &#39;Hasil AUC Performance Vector \n \nBerdasarkan pada gambar 4.9 dapat dibuat kesimpulan bahwa precision menunjukan tingkat \nketepatan data yang diprediksi positif yang menghasilkan presentase ketepatannya adalah 99,65%, \nsedangkan untuk data bersentimen negative memiliki precision sebesar 1,41%.&#39;, &#39;Untuk sentimen \nnegative memiliki recall (Specificity) adalah 40,00% sehingga dapat disimpulkan bahwa model \ndapat menemukan kembali informasi atau data yang benar-benar negative dengan sangat baik, \nsedangkan pada sentimen positif memiliki recall sebanyak 99,65%.&#39;, &#39;Nilai accuracy yang dihasilkan \nmenggunakan model K-Nearest Neighbors adalah 85,83%, sehingga dapat disimpulkan bahwa \nalgoritma K-Nearest Neighbors dapat mengklasifikasi sentimen dengan baik menggunakan data \nPenurunan Jumlah Pernikahan di Indonesia.&#39;, &#39;3050 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \n6) Deployment \nDeployment merupakan tahap akhir dalam pembuatan laporan hasil kegiatan data mining.&#39;, &#39;Laporan \nakhir yang berisi tentang pengetahuan yang diperoleh atau pengenalan pola dalam proses data \nmining.&#39;, &#39;3.2 Pembahasan \nPenelitian ini mengungkapkan penurunan jumlah pernikahan di Indonesia dipengaruhi oleh \nberbagai faktor, yang mempengaruhi keputusan individu untuk menikah.&#39;, &#39;Berdasarkan hasil analisis \nsentimen menggunakan algoritma K-Nearest Neighbors (KNN), mayoritas sentimen publik terhadap \npenurunan pernikahan menunjukkan kecenderungan negatif.&#39;, &#39;Hal ini didukung oleh temuan I. Setia \nNingtias (2022) yang menyatakan bahwa faktor-faktor seperti perubahan nilai-nilai sosial, peningkatan \npendidikan, dan kondisi ekonomi yang tidak stabil mempengaruhi penurunan angka pernikahan.&#39;, &#39;Temuan ini juga sejalan dengan pandangan Rahmananda et al.&#39;, &#39;(2022), yang menggarisbawahi bahwa \npeningkatan jumlah perceraian turut mempengaruhi persepsi publik.&#39;, &#39;Perceraian tidak hanya \nberdampak pada pasangan, tetapi juga memberikan efek jangka panjang terhadap anak-anak.&#39;, &#39;Dampak \nnegatif perceraian terhadap keluarga, terutama dalam aspek psikologis anak-anak, menjadi salah satu \nalasan utama mengapa masyarakat memandang penurunan angka pernikahan dengan kekhawatiran.&#39;, &#39;Seperti dijelaskan oleh H. M. Anwar et al.&#39;, &#39;(2020), wanita karier yang menghadapi konflik antara peran \nprofesional dan pribadi lebih rentan mengalami perceraian, yang kemudian memengaruhi pandangan \nmasyarakat terhadap pernikahan.&#39;, &#39;Di sisi lain, sebagian sentimen publik menunjukkan pandangan \npositif terhadap fenomena penurunan pernikahan.&#39;, &#39;Sebagian orang menganggap bahwa menunda \npernikahan adalah pilihan rasional, terutama bagi individu yang ingin fokus pada pengembangan diri \ndan karier sebelum memutuskan untuk menikah.&#39;, &#39;Pandangan ini sejalan dengan penelitian R. Astana \net al.&#39;, &#39;(2023) yang menunjukkan bahwa dewasa muda lebih memilih untuk memprioritaskan \npeningkatan kualitas hidup pribadi sebelum membangun rumah tangga.&#39;, &#39;Hal ini juga diperkuat oleh \ntemuan Afdal et al.&#39;, &#39;(2022), yang menyebutkan bahwa wanita modern cenderung lebih mengutamakan \nkarier sebelum memutuskan untuk menikah, sehingga berkontribusi pada penurunan angka \npernikahan.&#39;, &#39;Sentimen netral yang ditemukan dalam penelitian ini menunjukkan bahwa sebagian \nmasyarakat melihat penurunan pernikahan sebagai bagian dari perubahan sosial yang wajar.&#39;, &#39;Menurut \nAspary et al.&#39;, &#39;(2021), pergeseran nilai-nilai sosial ini terjadi secara alami seiring dengan berkembangnya \nmasyarakat, dan tidak selalu dianggap sebagai masalah besar yang memerlukan intervensi.&#39;, &#39;Metodologi yang digunakan dalam penelitian ini, khususnya penerapan algoritma KNN, \nmenunjukkan efektivitas dalam mengklasifikasikan sentimen publik berdasarkan data yang diambil \ndari TikTok.&#39;, &#39;KNN memungkinkan pengelompokan komentar berdasarkan sentimen positif, negatif, \ndan netral dengan tingkat akurasi yang baik.&#39;, &#39;Namun, terdapat beberapa tantangan dalam mengatasi \nvariasi bahasa informal yang sering digunakan di platform media sosial, yang membuat klasifikasi \nmenjadi lebih kompleks.&#39;, &#39;Sebagaimana diuraikan oleh Fitra dan Informatika (2023), meskipun KNN \nefektif dalam mengklasifikasikan teks, ada kesulitan dalam menangani perbedaan bahasa dan \npenggunaan istilah yang tidak baku di media sosial.&#39;, &#39;Penelitian ini memberikan gambaran bahwa \npenurunan angka pernikahan di Indonesia tidak hanya disebabkan oleh satu faktor, melainkan \nmerupakan hasil dari gabungan berbagai dinamika sosial, ekonomi, dan budaya.&#39;, &#39;Temuan ini \nmendukung penelitian Herawati et al.&#39;, &#39;(2020), yang menunjukkan bahwa generasi muda lebih \nmemprioritaskan karier dan kestabilan finansial sebelum mempertimbangkan pernikahan.&#39;, &#39;Hal ini \nberimplikasi pada pentingnya pembuat kebijakan merespons fenomena ini dengan cara yang lebih \ninklusif, mempertimbangkan kebutuhan individu dan perubahan sosial yang terjadi.&#39;, &#39;3051 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \n4.&#39;, &#39;Kesimpulan \n \nBerdasarkan hasil penelitian yang telah dilakukan mengenai klasifikasi opini publik terhadap \npenurunan jumlah pernikahan di Indonesia, dapat disimpulkan beberapa poin utama.&#39;, &#39;Pertama, \nanalisis sentimen menunjukkan bahwa sebanyak 99,65% dari total data, atau setara dengan 904 \nkomentar, memiliki sentimen positif terhadap penurunan jumlah pernikahan di Indonesia.&#39;, &#39;Sebaliknya, \nhanya 1,41% atau 146 data yang menunjukkan sentimen negatif.&#39;, &#39;Hal ini menunjukkan bahwa \nmayoritas masyarakat memiliki pandangan yang positif terkait fenomena tersebut, yang mungkin \nmencerminkan bahwa penundaan pernikahan dianggap sebagai keputusan yang rasional dalam \nkonteks kehidupan modern.&#39;, &#39;Kedua, hasil klasifikasi menggunakan algoritma K-Nearest Neighbor \n(KNN) terhadap dataset yang dianalisis menunjukkan tingkat akurasi sebesar 85,83%.&#39;, &#39;Nilai ini \nmenandakan bahwa algoritma KNN mampu mengklasifikasikan data secara baik dan dapat \ndiandalkan untuk memahami pola sentimen masyarakat terkait penurunan jumlah pernikahan di \nIndonesia.&#39;, &#39;5.&#39;, &#39;Ucapan Terima Kasih \n \nTerima kasih kepada Sekolah Tinggi Komputer Cipta Karya Informatika serta semua pihak yang \nberjasa pada penelitian yang telah dilaksanakan sehingga bisa diselesaikan dengan baik dari awal \npersiapan hingga pelaksanaan penelitian ini.&#39;, &#39;6.&#39;, &#39;Daftar Pustaka \n \nAdam, A.&#39;, &#39;(2020).&#39;, &#39;Dampak Perselingkuhan Suami Terhadap Kesehatan Mental dan Fisik \nIstri.&#39;, &#39;AL-WARDAH: Jurnal Kajian Perempuan, Gender dan Agama, 14(2), 177-186.&#39;, &#39;DOI: \nhttp://dx.doi.org/10.46339/al-wardah.v14i2.291.&#39;, &#39;Adam, A.&#39;, &#39;(2020).&#39;, &#39;Dinamika pernikahan dini.&#39;, &#39;Al-wardah, 13(1), 14.&#39;, &#39;Afdal, A., Ramadhani, V., Hanifah, S., Fikri, M., Hariko, R., &amp; Syapitri, D. (2022).&#39;, &#39;Kemampuan \nResiliensi: Studi Kasus dari Perspektif Ibu Tunggal.&#39;, &#39;Jurnal Ilmu Keluarga &amp; Konsumen, 15(3), 218-\n230.&#39;, &#39;Anwar, H. M., Sultan, L., &amp; Mapuna, H. D. (2022).&#39;, &#39;Fenomena Perceraian Di Kalangan Wanita Karir \nTahun 2020-2021 Perspektif Hukum Islam.&#39;, &#39;Qadauna: Jurnal Ilmiah Mahasiswa Hukum Keluarga \nIslam, 3(3), 659-672.&#39;, &#39;DOI: https://doi.org/10.24252/qadauna.v3i3.28670.&#39;, &#39;Arsyad, M. N. (2023).&#39;, &#39;Persepsi Perempuan yang Menunda Pernikahan untuk Menempuh Pendidikan \nyang LebihTinggi.&#39;, &#39;Paradigma: Jurnal Filsafat, Sains, Teknologi, Dan Sosial Budaya, 29(3), 72-77.&#39;, &#39;DOI: https://doi.org/10.33503/paradigma.v29i3.3163.&#39;, &#39;Aspary, O., Puspitawati, H., &amp; Krisnatuti, D. (2021).&#39;, &#39;Pengaruh karakteristik pekerja sosial, pasangan, \ninteraksi suami istri, dan kesejahteraan subjektif terhadap kualitas perkawinan pekerja \nsosial.&#39;, &#39;Jurnal Ilmu Keluarga &amp; Konsumen, 14(2), 140-151.&#39;, &#39;Astana, R., Krisnatuti, D., &amp; Riany, Y. E. (2023).&#39;, &#39;NILAI-NILAI KELUARGA, ADULT \nATTACHMENT, MATING INTELLIGENCE, DAN PREFERENSI PEMILIHAN \nPASANGAN PADA DEWASA MUDA.&#39;, &#39;Jurnal Ilmu Keluarga dan Konsumen, 16(2), 133-146.&#39;, &#39;3052 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \nAzizah, Y., Puspitawati, H., &amp; Herawati, T. (2022).&#39;, &#39;PENGARUH DUKUNGAN MANTAN \nSUAMI, STRATEGI KOPING, DAN RELASI ORANG TUA-ANAK TERHADAP \nKEBAHAGIAAN KELUARGA TUNGGAL.&#39;, &#39;Jurnal Ilmu Keluarga &amp; Konsumen, 15(2), 127-\n141.&#39;, &#39;Fadhilah, P. N., &amp; Indriyanti, A. D. (2023).&#39;, &#39;Analisis Sentimen terhadap Opini Publik Mengenai \nChildfree dalam Pernikahan pada Twitter Menggunakan K-Nearest Neighbor (K-NN).&#39;, &#39;Journal \nof \nInformatics \nand \nComputer \nScience \n(JINACS), 5(01), \n58-62.&#39;, &#39;DOI: \nhttps://doi.org/10.26740/jinacs.v5n01.p58-62.&#39;, &#39;Fala, M., Sunarti, E., &amp; Herawati, T. (2020).&#39;, &#39;Sources of stress, coping strategies, stress symptoms, \nand marital satisfaction in working wives.&#39;, &#39;Jurnal ilmu keluarga dan konsumen, 13(1), 25-37.&#39;, &#39;Herawati, T., Krisnatuti, D., Pujihasvuty, R., &amp; Latifah, E. W. (2020).&#39;, &#39;Faktor-faktor yang \nmemengaruhi pelaksanaan fungsi keluarga di Indonesia.&#39;, &#39;Jurnal Ilmu Keluarga Dan \nKonsumen, 13(3), 213-227.&#39;, &#39;Kuantitatif, P. P. (2016).&#39;, &#39;Metode Penelitian Kunatitatif Kualitatif dan R&amp;D.&#39;, &#39;Alfabeta, Bandung.&#39;, &#39;Muhammad, L. Y.&#39;, &#39;B., Muflikhati, I., &amp; Simanjuntak, M. (2019).&#39;, &#39;Religiusitas, dukungan sosial, stres, \ndan penyesuaian wanita bercerai.&#39;, &#39;Jurnal Ilmu Keluarga dan Konsumen, 12(3), 194-207.&#39;, &#39;Ningtias, I. S. (2022).&#39;, &#39;Faktor yang mempengaruhi penurunan angka pernikahan di Indonesia.&#39;, &#39;Jurnal \nRegistratie, 4(2), 87-98.&#39;, &#39;DOI: https://doi.org/10.33701/jurnalregistratie.v4i2.2819.&#39;, &#39;Prasetyo, S. D., Hilabi, S. S., &amp; Nurapriani, F. (2023).&#39;, &#39;Analisis Sentimen Relokasi Ibukota Nusantara \nMenggunakan Algoritma Naïve Bayes dan KNN.&#39;, &#39;Jurnal KomtekInfo, 1-7.&#39;, &#39;DOI: \nhttps://doi.org/10.35134/komtekinfo.v10i1.330.&#39;, &#39;Pratmanto, D., &amp; Imaniawan, F. F. D. (2023).&#39;, &#39;Analisis Sentimen Terhadap Aplikasi Canva \nMenggunakan Algoritma Naive Bayes Dan K-Nearest Neighbors.&#39;, &#39;Computer Science (CO-\nSCIENCE), 3(2), 110-117.&#39;, &#39;DOI: https://doi.org/10.31294/coscience.v3i2.1917.&#39;, &#39;Prayoga, I. F. (2023).&#39;, &#39;SISTEM PENDUKUNG PENERIMAAN BEASISWA SEKOLAH \nMENGGUNAKAN METODE K-NEAREST NEIGHBOR (KNN) DI SMA PGRI.&#39;, &#39;Jurnal \nTeknologi Pintar, 3(10).&#39;, &#39;Primartha, R., &amp; Wahono, R. S. (2021).&#39;, &#39;Algoritma machine learning.&#39;, &#39;Bandung: Informatika.&#39;, &#39;Putri, T. A., &amp; Khoirunnisa, R. N. (2022).&#39;, &#39;Resiliensi pada remaja korban perceraian orang tua.&#39;, &#39;Jurnal \nPsikologi, 9(4), 147-160.&#39;, &#39;DOI: https://doi.org/10.26740/cjpp.v9i6.47436.&#39;, &#39;Rahmananda, R., Adiyanti, M. G., &amp; Sari, E. P. (2022).&#39;, &#39;Kepuasan pernikahan pada istri generasi \nmilenial di sepuluh tahun awal pernikahan.&#39;, &#39;Jurnal Ilmu Keluarga Dan Konsumen, 15(2), 102-116.&#39;, &#39;Riyawi, M. R. (2021).&#39;, &#39;Penundaan Perkawinan Di Masa Pandemi Covid-19 Perspektif Teori \nMaslahah.&#39;, &#39;Legitima: \nJurnal \nHukum \nKeluarga \nIslam, 3(2), \n160-176.&#39;, &#39;DOI: \nhttps://doi.org/10.33367/legitima.v3i2.1761.&#39;, &#39;Sulistiyana, S., &amp; Kurnia, D. A.&#39;, &#39;(2021).&#39;, &#39;Pembangunan Model Clustering Dalam Pengelompokan \nPengadilan Agama Berdasarkan Kasus Perceraian Dengan Menggunakan Algoritma K-Means.&#39;, &#39;3053 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.&#39;, &#39;5 No.&#39;, &#39;3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \nTyas, P. F., &amp; Herawati, T. (2017).&#39;, &#39;Kualitas pernikahan dan kesejahteraan keluarga menentukan \nkualitas lingkungan pengasuhan anak pada pasangan yang menikah usia muda.&#39;, &#39;Jurnal Ilmu \nKeluarga &amp; Konsumen, 10(1), 1-12.&#39;, &#39;Umasangadji, M. K. (2023).&#39;, &#39;Hukum Menunda Perkawinan Dalam Islam (Studi Kasus Di Desa \nWaitina Kecamatan Mangoli Timur Kabupaten Kepulauan Sula).&#39;, &#39;Al-Mizan: Jurnal Kajian \nHukum dan Ekonomi, 55-71.&#39;, &#39;Utomo, A., &amp; Sutopo, O. R. (2020).&#39;, &#39;Pemuda, perkawinan, dan perubahan sosial di Indonesia.&#39;, &#39;Jurnal \nStudi Pemuda, 9(2), 77-89.&#39;, &#39;Widiyanto, H. (2020).&#39;, &#39;Konsep pernikahan dalam Islam (Studi fenomenologis penundaan pernikahan \ndi \nmasa \npandemi).&#39;, &#39;Jurnal \nIslam \nNusantara, 4(1), \n103-110.&#39;, &#39;DOI: \nhttps://doi.org/10.33852/jurnalin.v4i1.213.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                               kalimat
+0    3043 \nJurnal Indonesia : Manajemen Informatik...
+1                                                5 No.
+2    3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \...
+3    Email: afyraarbah@gmail.com 1, sri.lestari1203...
+4    Semua hak dilindungi oleh Lembaga Penelitian d...
+..                                                 ...
+275                Jurnal \nStudi Pemuda, 9(2), 77-89.
+276                              Widiyanto, H. (2020).
+277  Konsep pernikahan dalam Islam (Studi fenomenol...
+278       Jurnal \nIslam \nNusantara, 4(1), \n103-110.
+279  DOI: \nhttps://doi.org/10.33852/jurnalin.v4i1....
+
+[280 rows x 1 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;kalimat.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Untuk membuat word graph</p>
+<p>Lanjutkan dengan menggunakan <a class="reference external" href="https://www.geeksforgeeks.org/nlp/co-occurence-matrix-in-nlp/">https://www.geeksforgeeks.org/nlp/co-occurence-matrix-in-nlp/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># 1. Read the &#39;kalimat.csv&#39; file into a pandas DataFrame.</span>
+<span class="n">df_kalimat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;kalimat.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2. Access the &#39;kalimat&#39; column and 3. Concatenate all text entries into a single string.</span>
+<span class="n">all_text</span> <span class="o">=</span> <span class="n">df_kalimat</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First 500 characters of the concatenated text:</span><span class="se">\n</span><span class="si">{</span><span class="n">all_text</span><span class="p">[:</span><span class="mi">500</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First 500 characters of the concatenated text:
+3043 
+Jurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) 
+ Vol. 5 No. 3 (2024) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+https://journal.stmiki.ac.id 
+E-
+  P-
+ 
+ 
+ 
+Analisis Sentimen Publik Terhadap Penurunan Jumlah 
+Pernikahan di Indonesia menggunakan Algoritma K-Nearest 
+Neighbors (KNN) 
+ 
+Afyra Ar’bah Lailany 1, Sri Lestari 2* 
+ 
+1,2* Program Studi Sistem Informasi, Sekolah Tinggi Ilmu Komputer Cipta Karya Informatika, Kota Jakarta 
+Timur, Daerah Khusus Ibukota Jakarta, Indonesia. Email: afyraa
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df_to_clean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;kalimat.csv&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="c1"># Pastikan input string</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="c1"># Hapus karakter spesifik</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;◼&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Deteksi kata berulang seperti &quot;laki-laki&quot;, &quot;pura-pura&quot;</span>
+    <span class="c1"># Pola: kata-kata yang sama dipisah tanda hubung</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b(\w+)-\1\b&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># Hapus punctuation</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
+
+    <span class="c1"># Hapus angka</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># Lowercase</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="c1"># Hapus kata yang hanya satu huruf (mis. &quot;v&quot;, &quot;a&quot;, &quot;b&quot;)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b[a-zA-Z]\b&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># Hilangkan spasi berlebih</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="c1"># --- Tambahan: hapus kata berulang berurutan + filter 1 huruf lagi (jaga-jaga) ---</span>
+    <span class="k">if</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+        <span class="n">cleaned_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+            <span class="c1"># skip kalau hanya satu huruf</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="c1"># skip kalau sama dengan kata sebelumnya (kata berulang)</span>
+            <span class="k">if</span> <span class="n">tok</span> <span class="o">==</span> <span class="n">prev</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">cleaned_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">tok</span>
+
+        <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cleaned_tokens</span><span class="p">)</span>
+    <span class="c1"># ----------------------------------------------------------------------</span>
+
+    <span class="k">return</span> <span class="n">text</span>
+
+<span class="c1"># Terapkan pembersihan</span>
+<span class="n">df_to_clean</span><span class="p">[</span><span class="s1">&#39;cleaned_kalimat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_to_clean</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_text</span><span class="p">)</span>
+
+<span class="c1"># Simpan ke CSV</span>
+<span class="n">df_to_clean</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;kalimat_cleaned.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processed data with cleaned text saved to &#39;kalimat_cleaned.csv&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_to_clean</span><span class="p">[[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">,</span> <span class="s1">&#39;cleaned_kalimat&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processed data with cleaned text saved to &#39;kalimat_cleaned.csv&#39;
+                                                                                                                                                                                                                                                                                                                                                                                                                                          kalimat  \
+0                                                                                                                                                                                                                                                                                                                                                                  3043 \nJurnal Indonesia : Manajemen Informatika dan Komunikasi (JIMIK) \n Vol.   
+1                                                                                                                                                                                                                                                                                                                                                                                                                                           5 No.   
+2  3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \n \nhttps://journal.stmiki.ac.id \nE-\n  P-\n \n \n \nAnalisis Sentimen Publik Terhadap Penurunan Jumlah \nPernikahan di Indonesia menggunakan Algoritma K-Nearest \nNeighbors (KNN) \n \nAfyra Ar’bah Lailany 1, Sri Lestari 2* \n \n1,2* Program Studi Sistem Informasi, Sekolah Tinggi Ilmu Komputer Cipta Karya Informatika, Kota Jakarta \nTimur, Daerah Khusus Ibukota Jakarta, Indonesia.   
+3                                                                                                                                                                                                                             Email: afyraarbah@gmail.com 1, sri.lestari1203@gmail.com 2* \n \nHistori Artikel:  \nDikirim 25 Juli 2024; Diterima dalam bentuk revisi 10 Agustus 2024; Diterima 20 Agustus 2024; Diterbitkan 20 \nSeptember 2024.   
+4                                                                                                                                                                                                                                                                                                                                     Semua hak dilindungi oleh Lembaga Penelitian dan Pengabdian Masyarakat (LPPM) STMIK \nIndonesia Banda Aceh.   
+
+                                                                                                                                                                                                                                                                                                                  cleaned_kalimat  
+0                                                                                                                                                                                                                                                                 jurnal indonesia manajemen informatika dan komunikasi jimik vol  
+1                                                                                                                                                                                                                                                                                                                              no  
+2  httpsjournalstmikiacid analisis sentimen publik terhadap penurunan jumlah pernikahan di indonesia menggunakan algoritma knearest neighbors knn afyra ar’bah lailany sri lestari program studi sistem informasi sekolah tinggi ilmu komputer cipta karya informatika kota jakarta timur daerah khusus ibukota jakarta indonesia  
+3                                                                                                                                                                            email afyraarbahgmailcom srilestarigmailcom histori artikel dikirim juli diterima dalam bentuk revisi agustus diterima agustus diterbitkan september  
+4                                                                                                                                                                                                                          semua hak dilindungi oleh lembaga penelitian dan pengabdian masyarakat lppm stmik indonesia banda aceh  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
+
+<span class="c1"># Filter kata non-alfanumerik dan hapus stopwords</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span> <span class="ow">and</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Meningkatkan ukuran jendela untuk hubungan kata yang lebih kaya</span>
+
+<span class="c1"># 6. Membuat daftar pasangan kata yang muncul bersamaan</span>
+<span class="n">co_occurrences</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">Counter</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">window_size</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">),</span> <span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">co_occurrences</span><span class="p">[</span><span class="n">word</span><span class="p">][</span><span class="n">words</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># 7. Membuat daftar kata unik</span>
+<span class="n">unique_words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+
+<span class="c1"># 8. Inisialisasi matriks ko-okurensi</span>
+<span class="n">co_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># 9. Membuat mapping dari kata ke indeks</span>
+<span class="n">word_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)}</span>
+
+<span class="c1"># 10. Mengisi matriks ko-okurensi</span>
+<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">neighbors</span> <span class="ow">in</span> <span class="n">co_occurrences</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">word_index</span><span class="p">:</span>  <span class="c1"># Pastikan kata tetangga ada dalam unique_words</span>
+            <span class="n">co_matrix</span><span class="p">[</span><span class="n">word_index</span><span class="p">[</span><span class="n">word</span><span class="p">]][</span><span class="n">word_index</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]]</span> <span class="o">=</span> <span class="n">count</span>
+
+<span class="c1"># 11. Membuat DataFrame agar lebih mudah dibaca</span>
+<span class="n">co_matrix_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">co_matrix</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">unique_words</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">unique_words</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan matriks ko-okurensi</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matriks Ko-okurensi&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">co_matrix_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total kata setelah preprocessing:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matriks Ko-okurensi
+             informatika  dihalaman  berkurang  menganggap  diprediksi  3050  \
+informatika            0          0          0           0           0     0   
+dihalaman              0          0          0           0           0     0   
+berkurang              0          0          0           0           0     0   
+menganggap             0          0          0           0           0     0   
+diprediksi             0          0          0           0           0     0   
+3050                   0          0          0           0           0     0   
+pilihan                0          0          0           1           0     0   
+finansial              0          0          0           0           0     0   
+aims                   0          0          0           0           0     0   
+memisahkan             0          0          0           0           0     0   
+
+             pilihan  finansial  aims  memisahkan  
+informatika        0          0     0           0  
+dihalaman          0          0     0           0  
+berkurang          0          0     0           0  
+menganggap         1          0     0           0  
+diprediksi         0          0     0           0  
+3050               0          0     0           0  
+pilihan            0          0     0           0  
+finansial          0          0     0           0  
+aims               0          0     0           0  
+memisahkan         0          0     0           0  
+Total kata setelah preprocessing: 2350
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_pandas_adjacency</span><span class="p">(</span><span class="n">co_matrix_df</span><span class="p">)</span>
+
+<span class="c1"># Visualize the graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># positions for all nodes - k regulates the distance between nodes</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Co-occurrence Network Graph&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="c1"># Hide axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f84500b243c5bc5dc26d6e8cb2e4f4c048293944eb44d1a661724b645f42105f.png" src="_images/f84500b243c5bc5dc26d6e8cb2e4f4c048293944eb44d1a661724b645f42105f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pagerank_scores</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hasil perhitungan PageRank untuk tiap node:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil perhitungan PageRank untuk tiap node:
+data: 0.0288
+pernikahan: 0.0184
+sentimen: 0.0124
+penelitian: 0.0122
+indonesia: 0.0121
+jurnal: 0.0110
+penurunan: 0.0101
+proses: 0.0085
+algoritma: 0.0082
+knn: 0.0079
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># 1. Membuat DataFrame pandas dari dictionary pagerank_scores</span>
+<span class="n">pagerank_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Kata&#39;</span><span class="p">,</span> <span class="s1">&#39;Skor PageRank&#39;</span><span class="p">])</span>
+
+<span class="c1"># 2. Mengurutkan DataFrame berdasarkan &#39;Skor PageRank&#39; secara menurun</span>
+<span class="n">pagerank_df</span> <span class="o">=</span> <span class="n">pagerank_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Skor PageRank&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># 3. Menampilkan 20 kata teratas dari DataFrame yang sudah diurutkan</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;20 kata dengan Skor PageRank tertinggi:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pagerank_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20 kata dengan Skor PageRank tertinggi:
+          Kata  Skor PageRank
+0         data       0.028801
+1   pernikahan       0.018369
+2     sentimen       0.012386
+3   penelitian       0.012186
+4    indonesia       0.012106
+5       jurnal       0.010968
+6    penurunan       0.010071
+7       proses       0.008495
+8    algoritma       0.008181
+9          knn       0.007857
+10  masyarakat       0.007759
+11      sosial       0.007604
+12    keluarga       0.007261
+13           3       0.007247
+14       hasil       0.006960
+15       https       0.006559
+16       tahap       0.006139
+17         the       0.005549
+18    analisis       0.005546
+19        2024       0.005333
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Get PageRank scores from the previously calculated pagerank_scores dictionary</span>
+<span class="n">pagerank_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="c1"># Normalize PageRank scores for coloring (0 to 1 range)</span>
+<span class="c1"># Avoid division by zero if all scores are the same or zero</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">scores_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">pagerank_values</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">scores_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">)</span> <span class="c1"># If all scores are same, set to 0</span>
+
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">scores_norm</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">node</span><span class="p">)]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Draw nodes with colors based on PageRank score</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Co-occurrence Network Graph with PageRank Coloring&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add a color bar to show PageRank scale</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Normalized PageRank Score&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e566d88ffe2227e38ecf8230105bb0be21e49248c44606d35d597c57b26c4673.png" src="_images/e566d88ffe2227e38ecf8230105bb0be21e49248c44606d35d597c57b26c4673.png" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="usage.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">NASA</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Andre Doankz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
